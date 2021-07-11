@@ -682,6 +682,8 @@ const ABI = [
   }
 ];
 
-const address = '0xF6B8E75F3BF8b9CE2f8f2b58aE5401513A8Ed542';
+const address = '0x9a24120B1265E54732DC626e5C2dC034305Eb7D3';
 
-module.exports = { ABI, address };
+const account = '0x556139aaf426CEE323adc882553F0288027Eb575';
+
+module.exports = { ABI, address, account };

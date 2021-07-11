@@ -5,6 +5,7 @@ const port = 3001;
 const contract = require('./constants/contract');
 const address = contract.address;
 const ABI = contract.ABI;
+const account = contract.account;
 
 const Web3 = require('web3');
 const rpcURL = "http://localhost:8545";
@@ -19,14 +20,13 @@ app.get('/contract/totalSupply', (req, res) => {
 });
 
 app.get('/contract/balance', (req, res) => {
-    const account = req.query.account;
     Token.methods.balanceOf(account).call()
     .then(balance => res.json(balance))
     .catch(err => res.json(err));
 })
 
 app.post('/contract/mint', (req, res) => {
-    Token.methods.mint('0x5745E432305bc875743BE0F492D402f7DA922C5d', 1000).send({from:'0x7faA2a8587d7eBBD7820546081661315BA44D05D'})
+    Token.methods.mint(account, 1000).send({from:account})
     .then(response => res.json(response))
     .catch(err => res.json(err));
 });
