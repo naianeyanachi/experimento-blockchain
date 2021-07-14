@@ -31,4 +31,10 @@ app.post('/contract/mint', (req, res) => {
     .catch(err => res.json(err));
 });
 
+app.get('/contract/getPastEvents', (req, res) => {
+    Token.getPastEvents("allEvents")
+    .then(response => res.json(response))
+    .catch(err => res.json(err));
+});
+
 app.listen(port, () => console.log('Server ready'));
